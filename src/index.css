@@ -1,5 +1,22 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand:400,700');
+
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.full_width_column {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+
+h1 {
+  text-align: center;
 }
