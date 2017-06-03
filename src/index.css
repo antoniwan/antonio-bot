@@ -9,6 +9,8 @@ body {
 .container {
   max-width: 1200px;
   margin: 0 auto;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
 }
 .full_width_column {
   display: flex;
@@ -19,4 +21,6 @@ body {
 
 h1 {
   text-align: center;
+  margin-top: 1em;
+  margin-bottom: 1em;
 }

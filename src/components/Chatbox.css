@@ -1,31 +1,38 @@
-.chatinput {
-  min-width: 400px;
+.chat {
   display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.chatinput {
   justify-content: space-around;
+  margin-bottom: 0.5em;
+  display: flex;
 }
 .chatinput input[type='text'] {
   padding: 0.5em;
   border: 1px solid #ccc;
   border-radius: 3px;
-  min-width: 280px;
   font-size: 1em;
+  margin-right: 0.5em;
+  flex-grow: 1;
 }
 .chatinput button {
   padding: 1em;
   border: 1px solid #000000;
   border-radius: 3px;
-  min-width: 100px;
   background: black;
   color: white;
   font-size: 1em;
+  flex-grow: 0.2;
 }
 
 
 .chatbox {
-  display: block;
-  min-width: 400px;
-  background: #ccc;
+  background: #F3F9FE;
   border-radius: 3px;
   min-height: 400px;
   padding: 1em;
+  border: 1px solid #D4E5F5;
 }
