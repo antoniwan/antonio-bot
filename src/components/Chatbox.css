@@ -1,0 +1,31 @@
+.chatinput {
+  min-width: 400px;
+  display: flex;
+  justify-content: space-around;
+}
+.chatinput input[type='text'] {
+  padding: 0.5em;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  min-width: 280px;
+  font-size: 1em;
+}
+.chatinput button {
+  padding: 1em;
+  border: 1px solid #000000;
+  border-radius: 3px;
+  min-width: 100px;
+  background: black;
+  color: white;
+  font-size: 1em;
+}
+
+
+.chatbox {
+  display: block;
+  min-width: 400px;
+  background: #ccc;
+  border-radius: 3px;
+  min-height: 400px;
+  padding: 1em;
+}
