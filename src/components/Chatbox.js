@@ -26,7 +26,7 @@ class Chatinput extends React.Component {
 class Chatbox extends React.Component {
   render () {
     return (
-      <div>
+      <div className='chat'>
         <Chatinput />
         <div className='chatbox'>
           hola
