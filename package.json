@@ -7,6 +7,7 @@
     "react-dom": "^15.5.4"
   },
   "devDependencies": {
+    "api-ai-javascript": "^2.0.0-beta.20",
     "react-scripts": "1.0.7"
   },
   "scripts": {
