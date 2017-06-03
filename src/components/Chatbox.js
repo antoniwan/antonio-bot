@@ -1,15 +1,18 @@
 import React from 'react';
-
+import ApiAi from '../utils/api-ai';
 import './Chatbox.css';
+
+let apiAi = new ApiAi();
 
 class Chatinput extends React.Component {
   constructor (props) {
     super(props);
+
     this.handleSubmit = this.handleSubmit.bind(this);
   }
   handleSubmit (event) {
     event.preventDefault();
-    console.log('chatinput submitted');
+    console.log('ApiAi: ', apiAi.test());
   }
   render () {
     return (
