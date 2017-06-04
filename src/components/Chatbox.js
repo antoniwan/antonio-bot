@@ -16,18 +16,9 @@ function Message (props) {
 }
 
 class Chatinput extends React.Component {
-  constructor (props) {
-    super(props);
-
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-  handleSubmit (event) {
-    event.preventDefault();
-    //console.log('ApiAi: ', apiAi.test());
-  }
   render () {
     return (
-      <form className="chatinput" onSubmit={this.handleSubmit}>
+      <form className="chatinput" onSubmit={this.props.onSubmit}>
         <input type="text" placeholder="Write me something..." />
         <button>
           Send
@@ -43,13 +34,18 @@ class Chatbox extends React.Component {
 
     this.state = {
       conversationStarted: false,
+      connversation: {}
     }
 
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+  handleSubmit (event) {
+    event.preventDefault();
   }
   render () {
     return (
       <div className="chat">
-        <Chatinput />
+        <Chatinput onSubmit={this.handleSubmit} />
         <div className="chatbox">
           {!this.state.conversationStarted &&
               <Message text="Tell me something! 😎" />
