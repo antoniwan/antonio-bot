@@ -1,42 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import './Chatbox.css';
-
-function Message (props) {
-  const sentBy = props.user ? 'message user' : 'message';
-  return (
-    <div>
-      <div className={sentBy}>
-        {props.text}
-      </div>
-    </div>
-  )
-}
-Message.propTypes = {
-  text: PropTypes.string,
-  type: PropTypes.string,
-}
-
-class Chatinput extends React.Component {
-  constructor (props) {
-    super(props);
-
-    this.state = {
-      message: '',
-    }
-
-  }
-  render () {
-    return (
-      <form className="chatinput" onSubmit={this.props.onSubmit}>
-        <input type="text" placeholder="Write me something..." />
-        <button type="submit" disabled={!this.state.message}>
-          Send
-        </button>
-      </form>
-    )
-  }
-}
+import Message from './Message';
+import Chatinput from './Chatinput';
 
 class Chatbox extends React.Component {
   constructor (props) {
