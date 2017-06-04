@@ -1,0 +1,14 @@
+.message {
+  display: inline-block;
+  border-radius: 10px;
+  padding: 0.5em;
+  background:#E5E5EA;
+  color: #000000;
+  margin-bottom: 0.5em;
+}
+
+.message.user {
+  float: right;
+  background: #54BEF6;
+  color: #ffffff;
+}

@@ -1,4 +1,5 @@
 import React from 'react';
+import './Chatinput.css';
 
 class Chatinput extends React.Component {
   constructor (props) {
