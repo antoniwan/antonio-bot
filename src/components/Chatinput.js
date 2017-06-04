@@ -9,15 +9,28 @@ class Chatinput extends React.Component {
       message: '',
     }
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
+
   handleChange (event) {
+    const newState = {
+      'message': event.target.value
+    };
+    this.setState(newState);
+    this.props.callbackParent(newState);
+  }
+
+  handleSubmit (event) {
+    event.preventDefault();
+    this.props.onSubmit(event);
     this.setState({
-      'message': event.target.value,
+      message: ''
     });
   }
+
   render () {
     return (
-      <form className="chatinput" onSubmit={this.props.onSubmit}>
+      <form className="chatinput" onSubmit={this.handleSubmit}>
         <input type="text" value={this.state.message} placeholder="Write me something..." onChange={this.handleChange} />
         <button type="submit" disabled={!this.state.message}>
           Send

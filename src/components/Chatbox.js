@@ -9,18 +9,32 @@ class Chatbox extends React.Component {
 
     this.state = {
       conversationStarted: false,
-      connversation: {}
+      connversation: {},
+      newMessage: null,
     }
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.onChildChanged = this.onChildChanged.bind(this);
   }
+
   handleSubmit (event) {
     event.preventDefault();
+    console.log('New message to be pushed: ', this.state.newMessage);
+    // TODO: send the message
+    // TODO: set the newMessage to null
+    // TODO: post response to newMessage
   }
+
+  onChildChanged (childState) {
+    this.setState({
+      newMessage: childState.message,
+    });
+  }
+
   render () {
     return (
       <div className="chat">
-        <Chatinput onSubmit={this.handleSubmit} />
+        <Chatinput onSubmit={this.handleSubmit} callbackParent={this.onChildChanged} />
         <div className="chatbox">
           {!this.state.conversationStarted &&
               <Message text="Tell me something! 😎" />
