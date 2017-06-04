@@ -4,6 +4,17 @@ import './Chatbox.css';
 
 let apiAi = new ApiAi();
 
+function Message (props) {
+  const sentBy = props.user ? 'message user' : 'message';
+  return (
+    <div>
+      <div className={sentBy}>
+        {props.text}
+      </div>
+    </div>
+  )
+}
+
 class Chatinput extends React.Component {
   constructor (props) {
     super(props);
@@ -12,7 +23,7 @@ class Chatinput extends React.Component {
   }
   handleSubmit (event) {
     event.preventDefault();
-    console.log('ApiAi: ', apiAi.test());
+    //console.log('ApiAi: ', apiAi.test());
   }
   render () {
     return (
@@ -27,12 +38,26 @@ class Chatinput extends React.Component {
 }
 
 class Chatbox extends React.Component {
+  constructor (props) {
+    super(props);
+
+    this.state = {
+      conversationStarted: false,
+    }
+
+  }
   render () {
     return (
-      <div className='chat'>
+      <div className="chat">
         <Chatinput />
-        <div className='chatbox'>
-          hola
+        <div className="chatbox">
+          {!this.state.conversationStarted &&
+              <Message text="Tell me something! 😎" />
+          }
+
+          <Message user text="Hola!" />
+          <Message user text="What's up?" />
+          <Message text="Hola! All is good." />
         </div>
       </div>
     )

@@ -28,11 +28,27 @@
   flex-grow: 0.2;
 }
 
-
 .chatbox {
+  display: flex;
+  flex-direction: column-reverse;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
   background: #F3F9FE;
   border-radius: 3px;
-  min-height: 400px;
-  padding: 1em;
+  padding: 0.5em;
   border: 1px solid #D4E5F5;
+}
+
+.message {
+  display: inline-block;
+  border-radius: 10px;
+  padding: 0.5em;
+  background:#E5E5EA;
+  color: #000000;
+  margin-bottom: 0.5em;
+}
+.message.user {
+  float: right;
+  background: #54BEF6;
+  color: #ffffff;
 }
