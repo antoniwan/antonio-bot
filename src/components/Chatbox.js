@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import ApiAi from '../utils/api-ai';
 import './Chatbox.css';
 
@@ -13,6 +14,10 @@ function Message (props) {
       </div>
     </div>
   )
+}
+Message.propTypes = {
+  text: PropTypes.string,
+  type: PropTypes.string,
 }
 
 class Chatinput extends React.Component {
