@@ -27,6 +27,9 @@
   font-size: 1em;
   flex-grow: 0.2;
 }
+.chatinput button[disabled] {
+  opacity: 0.2;
+}
 
 .chatbox {
   display: flex;
