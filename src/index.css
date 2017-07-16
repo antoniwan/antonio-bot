@@ -1,27 +1,38 @@
-@import url('https://fonts.googleapis.com/css?family=Quicksand:400,700');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:700');
 
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Quicksand', sans-serif;
+  font-family: sans-serif;
+  margin-top: 0.5em;
 }
 
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding-left: 0.5em;
-  padding-right: 0.5em;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
 }
 
 .full_width_column {
   display: flex;
   flex-direction: column;
   width: 100%;
-  align-items: center;
+  align-items: left;
 }
 
 h1 {
+  font-family: 'Montserrat', sans-serif;
   text-align: center;
   margin-top: 0.5em;
   margin-bottom: 0.5em;
+  font-size: 1.6em;
 }
+
+p {
+  margin-top: 0;
+  margin-bottom: 1em;
+  color: #2C2C2c;
+}
+
+

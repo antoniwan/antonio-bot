@@ -10,8 +10,5 @@
   flex-direction: column-reverse;
   flex-wrap: nowrap;
   justify-content: flex-start;
-  background: #F3F9FE;
   border-radius: 3px;
-  padding: 0.5em;
-  border: 1px solid #D4E5F5;
 }
