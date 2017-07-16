@@ -27,28 +27,28 @@ class Chatbox extends React.Component {
   handleSubmit (event) {
     event.preventDefault();
     this.sendMessage(this.state.newMessage);
-    // TODO: send the message
-    // TODO: set the newMessage to null
-    // TODO: post response to newMessage
   }
 
-  sendMessage(text) {
+  updateConversation(newMessage, user = true, currentConversation) {
     const newConversation = [{
-      text: text,
-      key: Math.random(),
-      user: true,
-    }].concat(this.state.conversation);
-
+      text: newMessage,
+      key: `message-${Math.random()}`,
+      user: user,
+    }].concat(currentConversation);
     this.setState({
       conversation: newConversation,
     });
+    return this.state.conversation;
+  }
 
+  sendMessage(text) {
+    this.updateConversation(text, true, this.state.conversation);
     api.sendMessage(text)
       .then((response) => {
-        console.log(`api promise response for ${text}: `, response);
         this.setState({
           ai: response,
         });
+        this.updateConversation(response.result.fulfillment.speech, false, this.state.conversation);
       });
   }
 
@@ -59,17 +59,6 @@ class Chatbox extends React.Component {
   }
 
   render () {
-    const messages = [
-      {
-        text: 'This is a text message',
-        key: 1
-      },
-      {
-        text: 'This is a text message 2',
-        key: 2,
-        user: true,
-      },
-    ];
     return (
       <div className="chat">
         <Chatinput onSubmit={this.handleSubmit} callbackParent={this.onChildChanged} />
