@@ -73,9 +73,7 @@ class Chatbox extends React.Component {
     return (
       <div className="chat">
         <Chatinput onSubmit={this.handleSubmit} callbackParent={this.onChildChanged} />
-        <div className="chatbox">
-          <MessageList messages={this.state.conversation} />
-        </div>
+        <MessageList messages={this.state.conversation} />
       </div>
     )
   }
