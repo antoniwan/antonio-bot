@@ -1,9 +1,8 @@
-import { ApiAiClient, ApiAiStreamClient } from "api-ai-javascript";
+import { ApiAiClient } from "api-ai-javascript";
 
 const apiAiAccessToken = process.env.REACT_APP_API_AI_ACCESS_TOKEN;
 const client = new ApiAiClient({
   accessToken: apiAiAccessToken,
-  streamClientClass: ApiAiStreamClient
 });
 
 class ApiAi {
@@ -21,6 +20,19 @@ class ApiAi {
         console.log(error);
       });
   }
+  sendMessage(text) {
+    console.log(`Send: ${text}`);
+  }
 }
 
 export default ApiAi;
+
+export const sendMessage = (text) => {
+  return client.textRequest(text)
+      .then((response) => {
+        return response;
+      })
+      .catch((error) => {
+        return error;
+      });
+};
