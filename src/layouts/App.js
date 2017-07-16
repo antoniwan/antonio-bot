@@ -8,7 +8,8 @@ class App extends Component {
     return (
       <div className='container'>
         <div className="full_width_column">
-          <h1>Meet Antonio bot!</h1>
+          <h1>Meet Antonio!</h1>
+          <p>He enjoys helping you.</p>
           <Chatbox />
         </div>
       </div>
