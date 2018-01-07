@@ -1,12 +1,8 @@
 .chat-wrapper {
   display: block;
-  background: red;
   margin-top: 55.6px;
   margin-bottom: 69px;
   padding: 1rem;
-}
-
-.messages {
 }
 
 .input {
@@ -21,7 +17,4 @@
 .chatbox {
   display: flex;
   flex-direction: column-reverse;
-}
-
-.chatinput {
 }
