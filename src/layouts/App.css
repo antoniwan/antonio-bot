@@ -1,0 +1,19 @@
+header {
+  background: #f6f6f6;
+  padding: 1rem;
+  padding-top: 1.7rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid #dedede;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+}
+
+p {
+  font-size: 0.9rem;
+}
+
+span {
+  color: #777777;
+}

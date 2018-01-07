@@ -1,14 +1,13 @@
 .message {
-  display: inline-block;
   border-radius: 10px;
   padding: 0.5em;
-  background:#E5E5EA;
+  background: #e5e5ea;
   color: #000000;
   margin-bottom: 0.5em;
+  width: auto;
 }
 
 .message.user {
-  float: right;
-  background: #54BEF6;
+  background: #1b83f5;
   color: #ffffff;
 }

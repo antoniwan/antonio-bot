@@ -1,38 +1,19 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:700');
+@import url("https://fonts.googleapis.com/css?family=Karma|Raleway:900");
 
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
-  margin-top: 0.5em;
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding-left: 1.5em;
-  padding-right: 1.5em;
-}
-
-.full_width_column {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  align-items: left;
+  font-family: "Karma", sans-serif;
 }
 
 h1 {
-  font-family: 'Montserrat', sans-serif;
-  text-align: center;
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
+  font-family: "Raleway", sans-serif;
+  font-weight: 900;
+  text-align: left;
   font-size: 1.6em;
 }
 
 p {
-  margin-top: 0;
-  margin-bottom: 1em;
-  color: #2C2C2c;
+  margin: 0;
+  color: #2c2c2c;
 }
-
-

@@ -1,15 +1,17 @@
-import React, { Component } from 'react';
-import './App.css';
-import Chatbox from '../components/Chatbox';
+import React, { Component } from "react";
+import "./App.css";
+import Chatbox from "../components/Chatbox";
 
 class App extends Component {
-
   render() {
     return (
-      <div className='container'>
-        <div className="full_width_column">
-          <h1>Meet Antonio!</h1>
-          <p>He enjoys helping you.</p>
+      <div className="container">
+        <div className="">
+          <header>
+            <p>
+              <span>To:</span> Antonio-bot
+            </p>
+          </header>
           <Chatbox />
         </div>
       </div>
