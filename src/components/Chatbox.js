@@ -21,6 +21,11 @@ class Chatbox extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.onChildChanged = this.onChildChanged.bind(this);
+    this.scrollToBottom = this.scrollToBottom.bind(this);
+  }
+
+  scrollToBottom() {
+    this.messagesEnd.scrollIntoView({ behavior: "smooth" });
   }
 
   handleSubmit(event) {
@@ -39,6 +44,7 @@ class Chatbox extends React.Component {
     this.setState({
       conversation: newConversation
     });
+    this.scrollToBottom();
     return this.state.conversation;
   }
 
@@ -67,6 +73,11 @@ class Chatbox extends React.Component {
       <div className="chat-wrapper">
         <div className="messages">
           <MessageList messages={this.state.conversation} />
+          <div
+            ref={elem => {
+              this.messagesEnd = elem;
+            }}
+          />
         </div>
         <div className="input">
           <Chatinput
