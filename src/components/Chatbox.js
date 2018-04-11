@@ -1,7 +1,8 @@
 import React from "react";
 import "./Chatbox.css";
 import Chatinput from "./Chatinput";
-import * as api from "../utils/api-ai";
+import * as apiai from "../utils/api-ai";
+import * as weather from "../utils/weather";
 import MessageList from "./MessageList";
 
 class Chatbox extends React.Component {
@@ -30,10 +31,42 @@ class Chatbox extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    this.sendMessage(this.state.newMessage);
+    this.sendMessage(this.state.newMessage).then(response => {
+      let isUser = false;
+      const conversation = this.state.conversation;
+      const newMessage = this.generateNewMessage(response);
+      this.updateConversationUI(newMessage, isUser, conversation);
+    });
   }
 
-  updateConversation(newMessage, user = true, currentConversation) {
+  generateNewMessage(aiResponse) {
+    const aiResult = aiResponse.result;
+    const { metadata, parameters } = aiResult;
+    const intent = metadata.intentName;
+
+    console.log("Intent: ", intent);
+    console.log("Parameters: ", parameters);
+
+    let newMessage;
+
+    switch (intent) {
+      case "hows_the_weather":
+        const location =
+          parameters["geo-city"] === "" ? "Miami" : parameters["geo-city"];
+        weather.getWeather(location).then(response => {
+          console.log(response.data);
+        });
+        newMessage = `The weather in ${location}...`;
+        // Wife aggro!!! You were about to complete the weather response string literal
+        break;
+      default:
+        newMessage = aiResponse.result.fulfillment.speech;
+        break;
+    }
+    return newMessage;
+  }
+
+  updateConversationUI(newMessage, user = true, currentConversation) {
     const newConversation = [
       {
         text: newMessage,
@@ -49,16 +82,12 @@ class Chatbox extends React.Component {
   }
 
   sendMessage(text) {
-    this.updateConversation(text, true, this.state.conversation);
-    api.sendMessage(text).then(response => {
+    this.updateConversationUI(text, true, this.state.conversation);
+    return apiai.sendMessage(text).then(response => {
       this.setState({
         ai: response
       });
-      this.updateConversation(
-        response.result.fulfillment.speech,
-        false,
-        this.state.conversation
-      );
+      return response;
     });
   }
 
